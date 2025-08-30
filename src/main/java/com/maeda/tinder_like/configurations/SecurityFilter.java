@@ -1,4 +1,4 @@
-package com.maeda.tinder_like.Configurations;
+package com.maeda.tinder_like.configurations;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.maeda.tinder_like.Repositories.UserRepository;
+import com.maeda.tinder_like.repositories.UserRepository;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

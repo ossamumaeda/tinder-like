@@ -1,9 +1,9 @@
-package com.maeda.tinder_like.Repositories;
+package com.maeda.tinder_like.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import com.maeda.tinder_like.Domain.User.User;
+import com.maeda.tinder_like.domain.User.User;
 
 
 public interface UserRepository extends JpaRepository<User,Long>{

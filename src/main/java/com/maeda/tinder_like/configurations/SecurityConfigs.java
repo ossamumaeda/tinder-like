@@ -1,4 +1,4 @@
-package com.maeda.tinder_like.Configurations;
+package com.maeda.tinder_like.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

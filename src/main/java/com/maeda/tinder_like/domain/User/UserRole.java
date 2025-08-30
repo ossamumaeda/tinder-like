@@ -1,4 +1,4 @@
-package com.maeda.tinder_like.Domain.User;
+package com.maeda.tinder_like.domain.User;
 
 public enum UserRole {
     ADMIN("admin"),

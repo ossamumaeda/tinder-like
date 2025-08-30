@@ -1,4 +1,4 @@
-package com.maeda.tinder_like.Services;
+package com.maeda.tinder_like.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -6,7 +6,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.maeda.tinder_like.Repositories.UserRepository;
+import com.maeda.tinder_like.repositories.UserRepository;
 
 @Service
 public class AuthorizationService implements UserDetailsService{

@@ -1,4 +1,4 @@
-package com.maeda.tinder_like.Configurations;
+package com.maeda.tinder_like.configurations;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.maeda.tinder_like.Domain.User.User;
+import com.maeda.tinder_like.domain.User.User;
 
 @Service
 public class TokenService {

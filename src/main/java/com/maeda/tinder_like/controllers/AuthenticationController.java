@@ -1,14 +1,15 @@
-package com.maeda.tinder_like.Controllers;
+package com.maeda.tinder_like.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.maeda.tinder_like.Configurations.TokenService;
-import com.maeda.tinder_like.Domain.User.AuthenticationDTO;
-import com.maeda.tinder_like.Domain.User.LoginReponseDTO;
-import com.maeda.tinder_like.Domain.User.RegisterDTO;
-import com.maeda.tinder_like.Domain.User.User;
-import com.maeda.tinder_like.Repositories.UserRepository;
+import com.maeda.tinder_like.configurations.TokenService;
+import com.maeda.tinder_like.domain.User.AuthenticationDTO;
+import com.maeda.tinder_like.domain.User.LoginReponseDTO;
+import com.maeda.tinder_like.domain.User.RegisterDTO;
+import com.maeda.tinder_like.domain.User.User;
+import com.maeda.tinder_like.domain.User.UserDetailsDTO;
+import com.maeda.tinder_like.repositories.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,7 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity<Object> postMethodName(@RequestBody AuthenticationDTO authenticationDTO) {
+    public ResponseEntity<LoginReponseDTO> postMethodName(@RequestBody AuthenticationDTO authenticationDTO) {
         
         var userPassword = new UsernamePasswordAuthenticationToken(authenticationDTO.username(), authenticationDTO.password());
         var auth = this.authenticationManager.authenticate(userPassword);
@@ -48,7 +49,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@RequestBody RegisterDTO registerDTO) {
+    public ResponseEntity<UserDetailsDTO> register(@RequestBody RegisterDTO registerDTO) {
         
         if(this.userRepository.findByLogin(registerDTO.username()) != null){
             return ResponseEntity.badRequest().build();
@@ -58,11 +59,9 @@ public class AuthenticationController {
         User user = new User(registerDTO.username(),encryptedPassword,registerDTO.role());
 
         this.userRepository.save(user);
-
-        return ResponseEntity.ok().build();
+        UserDetailsDTO userdetails = new UserDetailsDTO(user.getUsername());
+        return ResponseEntity.ok().body(userdetails);
 
     }
     
-    
-
 }
