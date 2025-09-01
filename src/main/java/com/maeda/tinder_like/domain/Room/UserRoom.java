@@ -7,9 +7,11 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.Table;
+import lombok.Getter;
 
 @Entity
 @Table (name = "userroom")
+@Getter
 public class UserRoom {
      
     @EmbeddedId
